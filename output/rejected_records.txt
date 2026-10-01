@@ -1,0 +1,58 @@
+REJECTED RECORDS
+======================================================================
+10 row(s) were rejected and left out completely.
+
+fitness_sessions_invalid.csv, line 3
+  row: FIT-2026-101,P001,1,fast,1.55,32.6,0.30,0.94
+  - field 'heart_rate': 'fast' is not a valid number
+
+fitness_sessions_invalid.csv, line 4
+  row: FIT-2026-101,001,2,105,2.10,33.0,0.60,0.92
+  - field 'participant_id': '001' does not match the required format P followed by three digits, e.g. P001
+
+fitness_sessions_invalid.csv, line 5
+  row: FIT-2026-101,P001,3,118,2.50,33.2,,0.90
+  - field 'activity_level': missing value
+
+fitness_sessions_invalid.csv, line 6
+  row: FIT-2026-101,P001,4,124,2.80,33.4,0.78,1.40
+  - field 'signal_quality': 1.4 is outside the allowed range 0 to 1
+
+fitness_sessions_invalid.csv, line 7
+  row: FIT-26-102,P002,0,80,1.60,32.8,0.20,0.95
+  - field 'session_id': 'FIT-26-102' does not match the required format FIT-YYYY-NNN, e.g. FIT-2026-001
+
+fitness_sessions_invalid.csv, line 8
+  row: FIT-2026-102,P999,1,96,1.90,33.0,0.48,0.94
+  - field 'participant_id': unknown participant 'P999', not in the profiles file
+
+fitness_sessions_invalid.csv, line 9
+  row: FIT-2026-102,P002,two,110,2.20,33.2,0.66,0.93
+  - field 'timestamp': 'two' is not a valid whole number
+
+fitness_sessions_invalid.csv, line 10
+  row: FIT-2026-102,P002,3,-15,2.40,33.4,0.72,0.92
+  - field 'heart_rate': -15 is outside the allowed range 30 to 220
+
+fitness_sessions_invalid.csv, line 11
+  row: FIT-2026-102,P002,4,126,-0.50,55.0,1.30,0.91
+  - field 'skin_response': -0.5 is outside the allowed range 0 to 60
+  - field 'temperature': 55 is outside the allowed range 25 to 42
+  - field 'activity_level': 1.3 is outside the allowed range 0 to 1
+
+fitness_sessions_invalid.csv, line 12
+  row: FIT-2026-103,P003,0,70,1.20,32.4,0.12
+  - whole row: expected 8 fields but found 7
+
+
+LOW SIGNAL QUALITY (accepted, but excluded from analysis)
+======================================================================
+Rule: windows with signal_quality below 0.5 are valid records,
+but the readings cannot be trusted, so they are not used in any calculation.
+5 window(s) were excluded for this reason.
+
+fitness_sessions.csv, line 26: session FIT-2026-005, timestamp 0, signal_quality 0.34
+fitness_sessions.csv, line 27: session FIT-2026-005, timestamp 1, signal_quality 0.29
+fitness_sessions.csv, line 28: session FIT-2026-005, timestamp 2, signal_quality 0.25
+fitness_sessions.csv, line 29: session FIT-2026-005, timestamp 3, signal_quality 0.31
+fitness_sessions.csv, line 30: session FIT-2026-005, timestamp 4, signal_quality 0.28
